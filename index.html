@@ -22,6 +22,9 @@
   <div class="container">
   <H1>Launch Your Meeting Tabs</H1>
     <div class="col">
+      <div class="alert alert-primary" role="alert">
+        The first time you click the Launch Tabs button, you will have to come back to this tab to allow popups from this site!
+      </div>
   <div class="input-group mb-3">
     <div class="input-group-prepend">
     <span class="input-group-text" id="basic-addon1"><label for="spid">Service Provider ID</label></span>
@@ -36,6 +39,7 @@
       <button onclick="openAll()" class="btn btn-outline-primary">
     Launch Tabs
   </button>
+
 </div>
   <ul class="list-group">
   <li class="list-group-item"><a id="salespage" href="https://www.cargurus.com/Cars/sales/dealerSalesView.action">Sales Page</a></li>
@@ -51,7 +55,7 @@
     </div>
   </div>
   <div class="container">
-    
+
 <footer>
   <div class="row">
     <div class="col">
@@ -59,9 +63,9 @@
   <p>Created by Chad Blose</p>
   </div>
 </footer>
-   
+
   </div>
-  
+
 <script type="text/javascript">
     var link= document.getElementById('salespage');
     var dd= document.getElementById('dealerdashboard');
@@ -84,7 +88,7 @@
         ahr.search= '?Paying+Status=&365+Days=365+days&30+Days=30+days&Service+Provider+ID+%28SPID%29='+encodeURIComponent(input.value);
         fairshare.search= '?Service%20Provider%20ID%20%5BFOR%20%22Account%20Lookup%22%20TILES%20ONLY%5D='+encodeURIComponent(input.value)+'&Postal%20Code='+encodeURIComponent(zip.value);
     };
-    
+
     zip.onchange=zip.onkeyup= function() {
       fairshare.search='?Postal%20Code='+encodeURIComponent(zip.value)+'&Service%20Provider%20ID%20%5BFOR%20%22Account%20Lookup%22%20TILES%20ONLY%5D='+encodeURIComponent(input.value);
     };
@@ -99,7 +103,8 @@
         window.open(ahr, "_blank")
         window.open(fairshare, "_blank");
     };
-  
+
 </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>
