@@ -1,0 +1,110 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Meeting Mise En Place</title>
+  <meta name="description" content="Quickly launch tabs for needed information to meet with a customer.">
+  <meta name="author" content="Chad Blose">
+
+  <meta property="og:title" content="Meeting Launcher">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.cargurus.com">
+  <meta property="og:description" content="Just a way to launch multiple links at once">
+  <meta property="og:image" content="image.png">
+
+</head>
+
+<body>
+  <div class="container">
+  <H1>Launch Your Meeting Tabs</H1>
+    <div class="col">
+      <div class="alert alert-primary" role="alert">
+        The first time you click the Launch Tabs button, you will have to come back to this tab to allow popups from this site!
+      </div>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+    <span class="input-group-text" id="basic-addon1"><label for="spid">Service Provider ID</label></span>
+    </div>
+    <input type="text" id="spid" class="form-control" placeholder="######" aria-label="SPID" aria-describedby="basic-addon1">
+  </div>
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1"><label for="zip">Zip Code</label></span>
+    <input type="text" id="zip" class="form-control" placeholder="#####" aria-label="Zip" aria-describedby="basic-addon1">
+  </div>
+  <div>
+      <button onclick="openAll()" class="btn btn-outline-primary">
+    Launch Tabs
+  </button>
+
+</div>
+  <ul class="list-group">
+  <li class="list-group-item"><a id="salespage" href="https://www.cargurus.com/Cars/sales/dealerSalesView.action">Sales Page</a></li>
+  <li class="list-group-item"><a id="dealerdashboard" href="https://www.cargurus.com/Cars/dealerdashboard/viewDealerDashboard.action">Dealer Dashboard</a></li>
+  <li class="list-group-item"><a id="pricingtool" href="https://www.cargurus.com/Cars/dealerdashboard/app/pricingTool.action">Pricing Tool</a></li>
+  <li class="list-group-item"><a id="leadai" href="https://www.cargurus.com/Cars/dealerdashboard/app/leadIntelligence.action">LeadAI</a></li>
+  <li class="list-group-item"><a id="dealerinsights" href="https://www.cargurus.com/Cars/dealerdashboard/app/dealerInsights">Dealer Insights</a></li>
+  <li class="list-group-item"><a id="srp" href="https://www.cargurus.com/Cars/dealerdashboard/app/SRPActivity">SRP Activity</a></li>
+  <li class="list-group-item"><a id="vdp" href="https://www.cargurus.com/Cars/dealerdashboard/app/VDPActivity">VDP Activity</a></li>
+  <li class="list-group-item"><a id="fairshare" href="https://looker.n-gurus.com/dashboards/2377">Fair Share Report</a></li>
+  <li class="list-group-item"><a id="ahr" href="https://looker.n-gurus.com/dashboards/1103">Account History Report</a></li>
+  </ul>
+    </div>
+  </div>
+  <div class="container">
+
+<footer>
+  <div class="row">
+    <div class="col">
+    </div>
+  <p>Created by Chad Blose</p>
+  </div>
+</footer>
+
+  </div>
+
+<script type="text/javascript">
+    var link= document.getElementById('salespage');
+    var dd= document.getElementById('dealerdashboard');
+    var leadai= document.getElementById('leadai');
+    var srp= document.getElementById('srp');
+    var vdp= document.getElementById('vdp');
+    var pt= document.getElementById('pricingtool');
+    var fairshare= document.getElementById('fairshare');
+    var ahr= document.getElementById('ahr');
+    var input= document.getElementById('spid');
+    var zip= document.getElementById('zip');
+    input.onchange=input.onkeyup= function() {
+        link.search= '?serviceProvider='+encodeURIComponent(input.value);
+        dd.search= '?serviceProvider='+encodeURIComponent(input.value);
+        leadai.search= '?serviceProvider='+encodeURIComponent(input.value);
+        dealerinsights.search= '?serviceProvider='+encodeURIComponent(input.value);
+        srp.search= '?serviceProvider='+encodeURIComponent(input.value);
+        vdp.search= '?serviceProvider='+encodeURIComponent(input.value);
+        pt.search= '?serviceProvider='+encodeURIComponent(input.value);
+        ahr.search= '?Service+Provider+ID+%28SPID%29='+encodeURIComponent(input.value);
+        fairshare.search= '?Service%20Provider%20ID%20%5BFOR%20%22Account%20Lookup%22%20TILES%20ONLY%5D='+encodeURIComponent(input.value)+'&Postal%20Code='+encodeURIComponent(zip.value);
+    };
+
+    zip.onchange=zip.onkeyup= function() {
+      fairshare.search='?Postal%20Code='+encodeURIComponent(zip.value)+'&Service%20Provider%20ID%20%5BFOR%20%22Account%20Lookup%22%20TILES%20ONLY%5D='+encodeURIComponent(input.value);
+    };
+    function openAll() {
+        window.open(link, "_blank");
+        window.open(dd, "_blank");
+        window.open(leadai, "_blank");
+        window.open(dealerinsights, "_blank");
+        window.open(srp, "_blank");
+        window.open(vdp, "_blank");
+        window.open(pt, "_blank");
+        window.open(ahr, "_blank")
+        window.open(fairshare, "_blank");
+    };
+
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
